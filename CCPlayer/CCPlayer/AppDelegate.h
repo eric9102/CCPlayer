@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GCDWebServer.h"
+#import "GCDWebServerDataResponse.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (strong, nonatomic) GCDWebServer* webServer;
 
 @end
 
