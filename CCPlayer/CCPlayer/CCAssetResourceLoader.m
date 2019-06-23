@@ -27,6 +27,8 @@ static int badRequestErrorCode = 400;
 //        return YES;
 //    }
     
+    NSLog(@"shouldWaitForLoadingOfRequestedResource");
+    
     if ([scheme isEqualToString:@"zxsy"]) {
         
         [self handleRedirectRequest:loadingRequest];
