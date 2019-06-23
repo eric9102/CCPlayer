@@ -10,6 +10,7 @@
 		79204DBF22BF1FF000A0132D /* NSData+ASE128.m in Sources */ = {isa = PBXBuildFile; fileRef = 79204DBB22BF1FF000A0132D /* NSData+ASE128.m */; };
 		79204DC022BF1FF000A0132D /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 79204DBD22BF1FF000A0132D /* GTMBase64.m */; };
 		79204DC122BF1FF000A0132D /* AES128Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 79204DBE22BF1FF000A0132D /* AES128Util.m */; };
+		79204DC322BF43FA00A0132D /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 79204DC222BF43FA00A0132D /* 1.mp3 */; };
 		7982D15B22B93BF600747DC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7982D15A22B93BF600747DC9 /* AppDelegate.m */; };
 		7982D15E22B93BF600747DC9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7982D15D22B93BF600747DC9 /* ViewController.m */; };
 		7982D16122B93BF600747DC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7982D15F22B93BF600747DC9 /* Main.storyboard */; };
@@ -29,6 +30,7 @@
 		79204DBC22BF1FF000A0132D /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		79204DBD22BF1FF000A0132D /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
 		79204DBE22BF1FF000A0132D /* AES128Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AES128Util.m; sourceTree = "<group>"; };
+		79204DC222BF43FA00A0132D /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
 		7982D15622B93BF600747DC9 /* CCPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7982D15922B93BF600747DC9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7982D15A22B93BF600747DC9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 				7982D15F22B93BF600747DC9 /* Main.storyboard */,
 				7982D16222B93BF600747DC9 /* Assets.xcassets */,
 				7982D16422B93BF600747DC9 /* LaunchScreen.storyboard */,
+				79204DC222BF43FA00A0132D /* 1.mp3 */,
 				7982D16722B93BF600747DC9 /* Info.plist */,
 				7982D16822B93BF600747DC9 /* main.m */,
 			);
@@ -179,6 +182,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79204DC322BF43FA00A0132D /* 1.mp3 in Resources */,
 				7982D16622B93BF600747DC9 /* LaunchScreen.storyboard in Resources */,
 				7982D16322B93BF600747DC9 /* Assets.xcassets in Resources */,
 				7982D16122B93BF600747DC9 /* Main.storyboard in Resources */,
