@@ -108,14 +108,14 @@
 				7982D15A22B93BF600747DC9 /* AppDelegate.m */,
 				7982D15C22B93BF600747DC9 /* ViewController.h */,
 				7982D15D22B93BF600747DC9 /* ViewController.m */,
+				79204DC422BF649100A0132D /* CCAssetResourceLoader.h */,
+				79204DC522BF649100A0132D /* CCAssetResourceLoader.m */,
 				7982D15F22B93BF600747DC9 /* Main.storyboard */,
 				7982D16222B93BF600747DC9 /* Assets.xcassets */,
 				7982D16422B93BF600747DC9 /* LaunchScreen.storyboard */,
 				79204DC222BF43FA00A0132D /* 1.mp3 */,
 				7982D16722B93BF600747DC9 /* Info.plist */,
 				7982D16822B93BF600747DC9 /* main.m */,
-				79204DC422BF649100A0132D /* CCAssetResourceLoader.h */,
-				79204DC522BF649100A0132D /* CCAssetResourceLoader.m */,
 			);
 			path = CCPlayer;
 			sourceTree = "<group>";

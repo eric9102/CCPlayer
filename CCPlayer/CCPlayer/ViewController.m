@@ -47,10 +47,7 @@
 
 - (IBAction)playMusic:(id)sender {
     
-    NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
-    NSString *fileName = [NSString stringWithFormat:@"%@/11.mp3", documentDirectory];
-    
-    NSString *playUrl = fileName;
+    NSString *playUrl = @"http://192.168.50.205:12123/11.mp3";
     
     self.URLAsset = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:playUrl] options:nil];
     
@@ -58,8 +55,6 @@
     [self.URLAsset.resourceLoader setDelegate:_ccResourceLoader queue:dispatch_queue_create("ccAssetResource loader", nil)];
     
      AVPlayerItem *playerItem = [AVPlayerItem playerItemWithAsset:_URLAsset];
-    
-//    AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL:[NSURL fileURLWithPath:playUrl]];
     
     if (!self.player) {
         self.player = [AVPlayer playerWithPlayerItem:playerItem];

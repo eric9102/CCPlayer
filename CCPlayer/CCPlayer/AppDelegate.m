@@ -19,14 +19,19 @@
     // Override point for customization after application launch.
     
     self.webServer = [[GCDWebServer alloc] init];
+    NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
 
-    [self.webServer addHandlerForMethod:@"GET" path:@"/" requestClass:[GCDWebServerRequest class] processBlock:^GCDWebServerResponse * _Nullable(__kindof GCDWebServerRequest * _Nonnull request) {
+//    [self.webServer addHandlerForMethod:@"GET" path:@"/" requestClass:[GCDWebServerRequest class] processBlock:^GCDWebServerResponse * _Nullable(__kindof GCDWebServerRequest * _Nonnull request) {
+//
+//        return [GCDWebServerDataResponse responseWithHTML:@"<html><body><p>Hello World</p></body></html>"];
+//
+//    }];
 
-        return [GCDWebServerDataResponse responseWithHTML:@"<html><body><p>Hello World</p></body></html>"];
-
-    }];
-
+//    [_webServer startWithPort:12123 bonjourName:nil];
+    
+    [_webServer addGETHandlerForBasePath:@"/" directoryPath:documentDirectory indexFilename:nil cacheAge:3600 allowRangeRequests:YES];
     [_webServer startWithPort:12123 bonjourName:nil];
+    
     NSLog(@"Visit %@ in your web browser", _webServer.serverURL);
 
     
