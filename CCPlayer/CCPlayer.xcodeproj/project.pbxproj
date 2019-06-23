@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		79204DBF22BF1FF000A0132D /* NSData+ASE128.m in Sources */ = {isa = PBXBuildFile; fileRef = 79204DBB22BF1FF000A0132D /* NSData+ASE128.m */; };
+		79204DC022BF1FF000A0132D /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 79204DBD22BF1FF000A0132D /* GTMBase64.m */; };
+		79204DC122BF1FF000A0132D /* AES128Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 79204DBE22BF1FF000A0132D /* AES128Util.m */; };
 		7982D15B22B93BF600747DC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7982D15A22B93BF600747DC9 /* AppDelegate.m */; };
 		7982D15E22B93BF600747DC9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7982D15D22B93BF600747DC9 /* ViewController.m */; };
 		7982D16122B93BF600747DC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7982D15F22B93BF600747DC9 /* Main.storyboard */; };
@@ -19,6 +22,13 @@
 /* Begin PBXFileReference section */
 		3C7E4C3AA2EDB9773C505737 /* libPods-CCPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CCPlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		49DFF25A76D836DAF33F9BD8 /* Pods-CCPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CCPlayer.release.xcconfig"; path = "Target Support Files/Pods-CCPlayer/Pods-CCPlayer.release.xcconfig"; sourceTree = "<group>"; };
+		79204DB822BF1FF000A0132D /* NSData+ASE128.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ASE128.h"; sourceTree = "<group>"; };
+		79204DB922BF1FF000A0132D /* GTMBase64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMBase64.h; sourceTree = "<group>"; };
+		79204DBA22BF1FF000A0132D /* AES128Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AES128Util.h; sourceTree = "<group>"; };
+		79204DBB22BF1FF000A0132D /* NSData+ASE128.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+ASE128.m"; sourceTree = "<group>"; };
+		79204DBC22BF1FF000A0132D /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		79204DBD22BF1FF000A0132D /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
+		79204DBE22BF1FF000A0132D /* AES128Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AES128Util.m; sourceTree = "<group>"; };
 		7982D15622B93BF600747DC9 /* CCPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7982D15922B93BF600747DC9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7982D15A22B93BF600747DC9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -50,8 +60,21 @@
 				B068A2230767F7404AA4F7B8 /* Pods-CCPlayer.debug.xcconfig */,
 				49DFF25A76D836DAF33F9BD8 /* Pods-CCPlayer.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		79204DB722BF1FF000A0132D /* ASE128 */ = {
+			isa = PBXGroup;
+			children = (
+				79204DB822BF1FF000A0132D /* NSData+ASE128.h */,
+				79204DB922BF1FF000A0132D /* GTMBase64.h */,
+				79204DBA22BF1FF000A0132D /* AES128Util.h */,
+				79204DBB22BF1FF000A0132D /* NSData+ASE128.m */,
+				79204DBC22BF1FF000A0132D /* GTMDefines.h */,
+				79204DBD22BF1FF000A0132D /* GTMBase64.m */,
+				79204DBE22BF1FF000A0132D /* AES128Util.m */,
+			);
+			path = ASE128;
 			sourceTree = "<group>";
 		};
 		7982D14D22B93BF600747DC9 = {
@@ -75,6 +98,7 @@
 		7982D15822B93BF600747DC9 /* CCPlayer */ = {
 			isa = PBXGroup;
 			children = (
+				79204DB722BF1FF000A0132D /* ASE128 */,
 				7982D15922B93BF600747DC9 /* AppDelegate.h */,
 				7982D15A22B93BF600747DC9 /* AppDelegate.m */,
 				7982D15C22B93BF600747DC9 /* ViewController.h */,
@@ -215,9 +239,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79204DBF22BF1FF000A0132D /* NSData+ASE128.m in Sources */,
 				7982D15E22B93BF600747DC9 /* ViewController.m in Sources */,
+				79204DC022BF1FF000A0132D /* GTMBase64.m in Sources */,
 				7982D16922B93BF600747DC9 /* main.m in Sources */,
 				7982D15B22B93BF600747DC9 /* AppDelegate.m in Sources */,
+				79204DC122BF1FF000A0132D /* AES128Util.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
