@@ -11,6 +11,7 @@
 		79204DC022BF1FF000A0132D /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 79204DBD22BF1FF000A0132D /* GTMBase64.m */; };
 		79204DC122BF1FF000A0132D /* AES128Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 79204DBE22BF1FF000A0132D /* AES128Util.m */; };
 		79204DC322BF43FA00A0132D /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 79204DC222BF43FA00A0132D /* 1.mp3 */; };
+		79204DC622BF649100A0132D /* CCAssetResourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 79204DC522BF649100A0132D /* CCAssetResourceLoader.m */; };
 		7982D15B22B93BF600747DC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7982D15A22B93BF600747DC9 /* AppDelegate.m */; };
 		7982D15E22B93BF600747DC9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7982D15D22B93BF600747DC9 /* ViewController.m */; };
 		7982D16122B93BF600747DC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7982D15F22B93BF600747DC9 /* Main.storyboard */; };
@@ -31,6 +32,8 @@
 		79204DBD22BF1FF000A0132D /* GTMBase64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMBase64.m; sourceTree = "<group>"; };
 		79204DBE22BF1FF000A0132D /* AES128Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AES128Util.m; sourceTree = "<group>"; };
 		79204DC222BF43FA00A0132D /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
+		79204DC422BF649100A0132D /* CCAssetResourceLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCAssetResourceLoader.h; sourceTree = "<group>"; };
+		79204DC522BF649100A0132D /* CCAssetResourceLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCAssetResourceLoader.m; sourceTree = "<group>"; };
 		7982D15622B93BF600747DC9 /* CCPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7982D15922B93BF600747DC9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7982D15A22B93BF600747DC9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -111,6 +114,8 @@
 				79204DC222BF43FA00A0132D /* 1.mp3 */,
 				7982D16722B93BF600747DC9 /* Info.plist */,
 				7982D16822B93BF600747DC9 /* main.m */,
+				79204DC422BF649100A0132D /* CCAssetResourceLoader.h */,
+				79204DC522BF649100A0132D /* CCAssetResourceLoader.m */,
 			);
 			path = CCPlayer;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				79204DBF22BF1FF000A0132D /* NSData+ASE128.m in Sources */,
+				79204DC622BF649100A0132D /* CCAssetResourceLoader.m in Sources */,
 				7982D15E22B93BF600747DC9 /* ViewController.m in Sources */,
 				79204DC022BF1FF000A0132D /* GTMBase64.m in Sources */,
 				7982D16922B93BF600747DC9 /* main.m in Sources */,
@@ -391,8 +397,9 @@
 			baseConfigurationReference = B068A2230767F7404AA4F7B8 /* Pods-CCPlayer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MPG543T7N3;
 				INFOPLIST_FILE = CCPlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -410,8 +417,9 @@
 			baseConfigurationReference = 49DFF25A76D836DAF33F9BD8 /* Pods-CCPlayer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MPG543T7N3;
 				INFOPLIST_FILE = CCPlayer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
