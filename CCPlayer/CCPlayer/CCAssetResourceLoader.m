@@ -7,6 +7,8 @@
 //
 
 #import "CCAssetResourceLoader.h"
+#import <CoreServices/CoreServices.h>
+#import "NSData+ASE128.h"
 
 static int redirectErrorCode = 302;
 static int badRequestErrorCode = 400;
@@ -31,11 +33,29 @@ static int badRequestErrorCode = 400;
     
     if ([scheme isEqualToString:@"zxsy"]) {
         
-        [self handleRedirectRequest:loadingRequest];
+//        [self handleRedirectRequest:loadingRequest];
+        
+        [self handleRedirectRequestForEncryptData:loadingRequest];
         
     }
     
     return YES;
+}
+
+- (void) handleRedirectRequestForEncryptData:(AVAssetResourceLoadingRequest *)loadingRequest{
+    
+    NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    NSString *fileName = [NSString stringWithFormat:@"%@/11.mp3", documentDirectory];
+    
+    NSData *yourDataSource = [[NSData dataWithContentsOfURL:[NSURL fileURLWithPath:fileName]] AES128DecryptWithKey:@"123"];
+    
+    loadingRequest.contentInformationRequest.contentType    = (__bridge NSString *)kUTTypeMP3;
+    loadingRequest.contentInformationRequest.contentLength  = yourDataSource.length;
+    loadingRequest.contentInformationRequest.byteRangeAccessSupported   = YES;
+    NSRange range = NSMakeRange((NSUInteger)loadingRequest.dataRequest.requestedOffset, loadingRequest.dataRequest.requestedLength);
+    [loadingRequest.dataRequest respondWithData:[yourDataSource subdataWithRange:range]];
+    [loadingRequest finishLoading];
+    
 }
 
 - (BOOL) handleRedirectRequest:(AVAssetResourceLoadingRequest *)loadingRequest

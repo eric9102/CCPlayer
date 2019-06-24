@@ -32,9 +32,9 @@
     
     NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"1" ofType:@"mp3"]];
     
-//    NSData *mp3Data = [[[NSData alloc] initWithContentsOfURL:url] AES128EncryptWithKey:@"123"];
+    NSData *mp3Data = [[[NSData alloc] initWithContentsOfURL:url] AES128EncryptWithKey:@"123"];
 
-    NSData *mp3Data = [[NSData alloc] initWithContentsOfURL:url];
+//    NSData *mp3Data = [[NSData alloc] initWithContentsOfURL:url];
     
     NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
     NSString *fileName = [NSString stringWithFormat:@"%@/11.mp3", documentDirectory];
