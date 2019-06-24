@@ -47,7 +47,7 @@
 
 - (IBAction)playMusic:(id)sender {
     
-    NSString *playUrl = @"zxsy://192.168.50.205:12123/11.mp3";
+    NSString *playUrl = @"zxsy://127.0.0.1:12123/11.mp3";
     
     self.URLAsset = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:playUrl] options:nil];
     
