@@ -10,6 +10,9 @@
 #import "NSData+ASE128.h"
 #import <AVFoundation/AVFoundation.h>
 #import "CCAssetResourceLoader.h"
+#import "HTTPServer.h"
+#import "GCDWebServer.h"
+#import "GCDWebServerDataResponse.h"
 
 @interface ViewController ()
 
@@ -19,6 +22,10 @@
 
 @property (nonatomic, strong) CCAssetResourceLoader *ccResourceLoader;
 
+@property (nonatomic, strong) HTTPServer * httpServer;
+
+@property (strong, nonatomic) GCDWebServer* gcdWebServer;
+
 @end
 
 @implementation ViewController
@@ -26,6 +33,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+//    [self openHttpServer];
+    [self openGCDWebServer];
 }
 
 - (IBAction)copyFileToDocument:(id)sender {
@@ -47,7 +57,7 @@
 
 - (IBAction)playMusic:(id)sender {
     
-    NSString *playUrl = @"zxsy://192.168.50.205:12123/11.mp3";
+    NSString *playUrl = @"zxsy://127.0.0.1:12123/11.mp3";
     
     self.URLAsset = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:playUrl] options:nil];
     
@@ -71,7 +81,37 @@
     
 }
 
+- (void)openHttpServer
+{
+    
+    self.httpServer = [[HTTPServer alloc] init];
+    [self.httpServer setType:@"_http._tcp."];  // 设置服务类型
+    [self.httpServer setPort:12123]; // 设置服务器端口
+    
+    // 获取本地Library/Cache路径下downloads路径
+    NSString *WebBasePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    
+    NSLog(@"-------------\nSetting document root: %@\n", WebBasePath);
+    // 设置服务器路径
+    [self.httpServer setDocumentRoot:WebBasePath];
+    NSError *error;
+    if(![self.httpServer start:&error])
+    {
+        NSLog(@"-------------\nError starting HTTP Server: %@\n", error);
+    }
+}
 
+- (void)openGCDWebServer{
+
+        self.gcdWebServer = [[GCDWebServer alloc] init];
+        NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    
+        [_gcdWebServer addGETHandlerForBasePath:@"/" directoryPath:documentDirectory indexFilename:nil cacheAge:3600 allowRangeRequests:YES];
+        [_gcdWebServer startWithPort:12123 bonjourName:nil];
+    
+        NSLog(@"Visit %@ in your web browser", _gcdWebServer.serverURL);
+    
+}
 
 @end
 
