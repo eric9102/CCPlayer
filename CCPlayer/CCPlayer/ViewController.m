@@ -10,6 +10,7 @@
 #import "NSData+ASE128.h"
 #import <AVFoundation/AVFoundation.h>
 #import "CCAssetResourceLoader.h"
+#import "HTTPServer.h"
 
 @interface ViewController ()
 
@@ -19,6 +20,8 @@
 
 @property (nonatomic, strong) CCAssetResourceLoader *ccResourceLoader;
 
+@property (nonatomic, strong) HTTPServer * httpServer;
+
 @end
 
 @implementation ViewController
@@ -26,15 +29,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self openHttpServer];
 }
 
 - (IBAction)copyFileToDocument:(id)sender {
     
     NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"1" ofType:@"mp3"]];
     
-//    NSData *mp3Data = [[[NSData alloc] initWithContentsOfURL:url] AES128EncryptWithKey:@"123"];
+    NSData *mp3Data = [[[NSData alloc] initWithContentsOfURL:url] AES128EncryptWithKey:@"123"];
 
-    NSData *mp3Data = [[NSData alloc] initWithContentsOfURL:url];
+//    NSData *mp3Data = [[NSData alloc] initWithContentsOfURL:url];
     
     NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
     NSString *fileName = [NSString stringWithFormat:@"%@/11.mp3", documentDirectory];
@@ -71,7 +76,25 @@
     
 }
 
-
+- (void)openHttpServer
+{
+    
+    self.httpServer = [[HTTPServer alloc] init];
+    [self.httpServer setType:@"_http._tcp."];  // 设置服务类型
+    [self.httpServer setPort:12123]; // 设置服务器端口
+    
+    // 获取本地Library/Cache路径下downloads路径
+    NSString *WebBasePath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    
+    NSLog(@"-------------\nSetting document root: %@\n", WebBasePath);
+    // 设置服务器路径
+    [self.httpServer setDocumentRoot:WebBasePath];
+    NSError *error;
+    if(![self.httpServer start:&error])
+    {
+        NSLog(@"-------------\nError starting HTTP Server: %@\n", error);
+    }
+}
 
 @end
 
