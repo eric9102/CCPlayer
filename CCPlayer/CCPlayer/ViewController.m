@@ -11,6 +11,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import "CCAssetResourceLoader.h"
 #import "HTTPServer.h"
+#import "GCDWebServer.h"
+#import "GCDWebServerDataResponse.h"
 
 @interface ViewController ()
 
@@ -22,6 +24,8 @@
 
 @property (nonatomic, strong) HTTPServer * httpServer;
 
+@property (strong, nonatomic) GCDWebServer* gcdWebServer;
+
 @end
 
 @implementation ViewController
@@ -30,16 +34,17 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self openHttpServer];
+//    [self openHttpServer];
+    [self openGCDWebServer];
 }
 
 - (IBAction)copyFileToDocument:(id)sender {
     
     NSURL *url = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"1" ofType:@"mp3"]];
     
-    NSData *mp3Data = [[[NSData alloc] initWithContentsOfURL:url] AES128EncryptWithKey:@"123"];
+//    NSData *mp3Data = [[[NSData alloc] initWithContentsOfURL:url] AES128EncryptWithKey:@"123"];
 
-//    NSData *mp3Data = [[NSData alloc] initWithContentsOfURL:url];
+    NSData *mp3Data = [[NSData alloc] initWithContentsOfURL:url];
     
     NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
     NSString *fileName = [NSString stringWithFormat:@"%@/11.mp3", documentDirectory];
@@ -94,6 +99,18 @@
     {
         NSLog(@"-------------\nError starting HTTP Server: %@\n", error);
     }
+}
+
+- (void)openGCDWebServer{
+
+        self.gcdWebServer = [[GCDWebServer alloc] init];
+        NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+    
+        [_gcdWebServer addGETHandlerForBasePath:@"/" directoryPath:documentDirectory indexFilename:nil cacheAge:3600 allowRangeRequests:YES];
+        [_gcdWebServer startWithPort:12123 bonjourName:nil];
+    
+        NSLog(@"Visit %@ in your web browser", _gcdWebServer.serverURL);
+    
 }
 
 @end
