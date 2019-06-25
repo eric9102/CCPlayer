@@ -12,6 +12,7 @@
 		79204DC122BF1FF000A0132D /* AES128Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 79204DBE22BF1FF000A0132D /* AES128Util.m */; };
 		79204DC322BF43FA00A0132D /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 79204DC222BF43FA00A0132D /* 1.mp3 */; };
 		79204DC622BF649100A0132D /* CCAssetResourceLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 79204DC522BF649100A0132D /* CCAssetResourceLoader.m */; };
+		79204DC922C26C9700A0132D /* GCDWebServerFileResponseWithDecryption.m in Sources */ = {isa = PBXBuildFile; fileRef = 79204DC822C26C9700A0132D /* GCDWebServerFileResponseWithDecryption.m */; };
 		7982D15B22B93BF600747DC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7982D15A22B93BF600747DC9 /* AppDelegate.m */; };
 		7982D15E22B93BF600747DC9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7982D15D22B93BF600747DC9 /* ViewController.m */; };
 		7982D16122B93BF600747DC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7982D15F22B93BF600747DC9 /* Main.storyboard */; };
@@ -34,6 +35,8 @@
 		79204DC222BF43FA00A0132D /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
 		79204DC422BF649100A0132D /* CCAssetResourceLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCAssetResourceLoader.h; sourceTree = "<group>"; };
 		79204DC522BF649100A0132D /* CCAssetResourceLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCAssetResourceLoader.m; sourceTree = "<group>"; };
+		79204DC722C26C9700A0132D /* GCDWebServerFileResponseWithDecryption.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCDWebServerFileResponseWithDecryption.h; sourceTree = "<group>"; };
+		79204DC822C26C9700A0132D /* GCDWebServerFileResponseWithDecryption.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCDWebServerFileResponseWithDecryption.m; sourceTree = "<group>"; };
 		7982D15622B93BF600747DC9 /* CCPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CCPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7982D15922B93BF600747DC9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7982D15A22B93BF600747DC9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -110,6 +113,8 @@
 				7982D15D22B93BF600747DC9 /* ViewController.m */,
 				79204DC422BF649100A0132D /* CCAssetResourceLoader.h */,
 				79204DC522BF649100A0132D /* CCAssetResourceLoader.m */,
+				79204DC722C26C9700A0132D /* GCDWebServerFileResponseWithDecryption.h */,
+				79204DC822C26C9700A0132D /* GCDWebServerFileResponseWithDecryption.m */,
 				7982D15F22B93BF600747DC9 /* Main.storyboard */,
 				7982D16222B93BF600747DC9 /* Assets.xcassets */,
 				7982D16422B93BF600747DC9 /* LaunchScreen.storyboard */,
@@ -250,6 +255,7 @@
 			files = (
 				79204DBF22BF1FF000A0132D /* NSData+ASE128.m in Sources */,
 				79204DC622BF649100A0132D /* CCAssetResourceLoader.m in Sources */,
+				79204DC922C26C9700A0132D /* GCDWebServerFileResponseWithDecryption.m in Sources */,
 				7982D15E22B93BF600747DC9 /* ViewController.m in Sources */,
 				79204DC022BF1FF000A0132D /* GTMBase64.m in Sources */,
 				7982D16922B93BF600747DC9 /* main.m in Sources */,

@@ -12,6 +12,7 @@
 #import "CCAssetResourceLoader.h"
 #import "GCDWebServer.h"
 #import "GCDWebServerDataResponse.h"
+#import "GCDWebServerFileResponseWithDecryption.h"
 
 @interface ViewController ()
 
@@ -31,7 +32,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-//    [self openGCDWebServer];
+    [self openGCDWebServer2];
+    
 }
 
 - (IBAction)copyFileToDocument:(id)sender {
@@ -53,7 +55,7 @@
 
 - (IBAction)playMusic:(id)sender {
     
-    NSString *playUrl = @"zxsy://127.0.0.1:12123/11.mp3";
+    NSString *playUrl = @"http://127.0.0.1:12123/11.mp3";
     
     self.URLAsset = [AVURLAsset URLAssetWithURL:[NSURL URLWithString:playUrl] options:nil];
     
@@ -86,6 +88,25 @@
         [_gcdWebServer startWithPort:12123 bonjourName:nil];
     
         NSLog(@"Visit %@ in your web browser", _gcdWebServer.serverURL);
+    
+}
+
+- (void)openGCDWebServer2{
+    
+    self.gcdWebServer = [[GCDWebServer alloc] init];
+    [_gcdWebServer addDefaultHandlerForMethod:@"GET" requestClass:[GCDWebServerRequest class] processBlock:^GCDWebServerResponse * _Nullable(__kindof GCDWebServerRequest * _Nonnull request) {
+        
+        NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
+        NSString *fileName = [NSString stringWithFormat:@"%@/11.mp3", documentDirectory];
+        GCDWebServerFileResponseWithDecryption *response = [GCDWebServerFileResponseWithDecryption responseWithFile:fileName
+                                                                                                          byteRange:[request byteRange]
+                                                                                                       isAttachment:NO];
+        
+        return response;
+        
+    }];
+    
+    [_gcdWebServer startWithPort:12123 bonjourName:nil];
     
 }
 
