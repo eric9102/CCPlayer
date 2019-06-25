@@ -13,6 +13,12 @@
 static int redirectErrorCode = 302;
 static int badRequestErrorCode = 400;
 
+@interface CCAssetResourceLoader ()
+
+@property (strong, nonatomic) NSData *yourDataSource;
+
+@end
+
 @implementation CCAssetResourceLoader
 
 - (BOOL) resourceLoader:(AVAssetResourceLoader *)resourceLoader shouldWaitForLoadingOfRequestedResource:(AVAssetResourceLoadingRequest *)loadingRequest
@@ -47,13 +53,17 @@ static int badRequestErrorCode = 400;
     NSString *documentDirectory = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject];
     NSString *fileName = [NSString stringWithFormat:@"%@/11.mp3", documentDirectory];
     
-    NSData *yourDataSource = [[NSData dataWithContentsOfURL:[NSURL fileURLWithPath:fileName]] AES128DecryptWithKey:@"123"];
+    if (!self.yourDataSource) {
+        
+        self.yourDataSource = [[NSData dataWithContentsOfURL:[NSURL fileURLWithPath:fileName]] AES128DecryptWithKey:@"123"];
+        
+    }
     
     loadingRequest.contentInformationRequest.contentType    = (__bridge NSString *)kUTTypeMP3;
-    loadingRequest.contentInformationRequest.contentLength  = yourDataSource.length;
+    loadingRequest.contentInformationRequest.contentLength  = _yourDataSource.length;
     loadingRequest.contentInformationRequest.byteRangeAccessSupported   = YES;
     NSRange range = NSMakeRange((NSUInteger)loadingRequest.dataRequest.requestedOffset, loadingRequest.dataRequest.requestedLength);
-    [loadingRequest.dataRequest respondWithData:[yourDataSource subdataWithRange:range]];
+    [loadingRequest.dataRequest respondWithData:[_yourDataSource subdataWithRange:range]];
     [loadingRequest finishLoading];
     
 }
