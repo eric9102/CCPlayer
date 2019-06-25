@@ -31,7 +31,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self openGCDWebServer];
+//    [self openGCDWebServer];
 }
 
 - (IBAction)copyFileToDocument:(id)sender {
